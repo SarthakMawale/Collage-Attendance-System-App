@@ -1,0 +1,182 @@
+import '../models/app_models.dart';
+
+final List<AppUser> mockStudents = [
+  AppUser(
+    id: 1,
+    name: "Sarthak Mawale",
+    email: "sarthak@college.edu",
+    password: "123456",
+    role: Role.Student,
+    rollNo: "23BCA1001",
+    mobile: "9876543210",
+    className: "BSC FY - Sem 1",
+    photo: "https://i.pravatar.cc/150?img=11",
+  ),
+  AppUser(
+    id: 2,
+    name: "Rohan Kumar",
+    email: "rohan@college.edu",
+    password: "123456",
+    role: Role.Student,
+    rollNo: "23BCA1002",
+    mobile: "9876543211",
+    className: "BCA FY - Sem 1",
+    photo: "https://i.pravatar.cc/150?img=12",
+  ),
+  AppUser(
+    id: 3,
+    name: "Sneha Patel",
+    email: "sneha@college.edu",
+    password: "123456",
+    role: Role.Student,
+    rollNo: "23BCA1003",
+    mobile: "9876543212",
+    className: "BCA FY - Sem 1",
+    photo: "https://i.pravatar.cc/150?img=13",
+  ),
+  AppUser(
+    id: 4,
+    name: "Rahul Singh",
+    email: "rahul@college.edu",
+    password: "123456",
+    role: Role.Student,
+    rollNo: "23BCA1004",
+    mobile: "9876543213",
+    className: "BCA FY - Sem 1",
+    photo: "https://i.pravatar.cc/150?img=14",
+  ),
+  AppUser(
+    id: 5,
+    name: "Anjali Verma",
+    email: "anjali@college.edu",
+    password: "123456",
+    role: Role.Student,
+    rollNo: "23BCA1005",
+    mobile: "9876543214",
+    className: "BCA FY - Sem 1",
+    photo: "https://i.pravatar.cc/150?img=15",
+  ),
+  AppUser(
+    id: 6,
+    name: "Vikram Joshi",
+    email: "vikram@college.edu",
+    password: "123456",
+    role: Role.Student,
+    rollNo: "23BCA1006",
+    mobile: "9876543215",
+    className: "BCA FY - Sem 1",
+    photo: "https://i.pravatar.cc/150?img=16",
+  ),
+];
+
+final List<AppUser> mockTeachers = [
+  AppUser(
+    id: 101,
+    name: "Prof. John Doe",
+    email: "john@college.edu",
+    password: "123456",
+    role: Role.Teacher,
+    subject: "DSA",
+    photo: "https://i.pravatar.cc/150?img=8",
+  ),
+  AppUser(
+    id: 102,
+    name: "Prof. Neha Sharma",
+    email: "neha@college.edu",
+    password: "123456",
+    role: Role.Teacher,
+    subject: "Maths",
+    photo: "https://i.pravatar.cc/150?img=9",
+  ),
+  AppUser(
+    id: 103,
+    name: "Prof. Amit Verma",
+    email: "amit@college.edu",
+    password: "123456",
+    role: Role.Teacher,
+    subject: "English",
+    photo: "https://i.pravatar.cc/150?img=10",
+  ),
+  AppUser(
+    id: 104,
+    name: "Prof. Pooja Singh",
+    email: "pooja@college.edu",
+    password: "123456",
+    role: Role.Teacher,
+    subject: "CS",
+    photo: "https://i.pravatar.cc/150?img=32",
+  ),
+];
+
+final AppUser mockAdmin = AppUser(
+  id: 201,
+  name: "Admin",
+  email: "admin@college.edu",
+  password: "admin123",
+  role: Role.Admin,
+  photo: "https://i.pravatar.cc/150?img=68",
+);
+
+final List<ClassItem> mockClasses = [
+  ClassItem(id: 1, name: "BCA FY - Sem 1", students: 40, semester: "Sem 1", teacherId: "101"),
+  ClassItem(id: 2, name: "BCA SY - Sem 3", students: 38, semester: "Sem 3", teacherId: "102"),
+  ClassItem(id: 3, name: "BSc FY - Sem 1", students: 36, semester: "Sem 1", teacherId: "103"),
+  ClassItem(id: 4, name: "BCOM FY - Sem 1", students: 42, semester: "Sem 1", teacherId: "101"),
+];
+
+final List<AttendanceRecord> mockAttendance = [
+  AttendanceRecord(
+    id: 1,
+    studentId: 2,
+    teacherId: 101,
+    classId: 1,
+    subject: "DSA",
+    status: AttendanceStatus.Present,
+    date: "2026-05-08",
+    time: "09:15 AM",
+  ),
+  AttendanceRecord(
+    id: 2,
+    studentId: 1,
+    teacherId: 102,
+    classId: 2,
+    subject: "Maths",
+    status: AttendanceStatus.Present,
+    date: "2026-05-07",
+    time: "11:30 AM",
+  ),
+  AttendanceRecord(
+    id: 3,
+    studentId: 2,
+    teacherId: 103,
+    classId: 3,
+    subject: "English",
+    status: AttendanceStatus.Absent,
+    date: "2026-05-06",
+    time: "01:45 PM",
+  ),
+];
+
+final List<Notice> mockNotices = [
+  Notice(
+    id: 1,
+    title: "Holiday Notice",
+    description: "College will remain closed on 10 May 2026 due to summer break.",
+    date: "2026-05-08",
+    postedBy: "Admin",
+  ),
+  Notice(
+    id: 2,
+    title: "Exam Schedule",
+    description: "Midterm exams will start from 20 May 2026. Check the schedule.",
+    date: "2026-05-07",
+    postedBy: "Admin",
+  ),
+  Notice(
+    id: 3,
+    title: "Workshop Announcement",
+    description: "Workshop on AI/ML will be held on 18 May 2026. Register now!",
+    date: "2026-05-06",
+    postedBy: "Admin",
+  ),
+];
