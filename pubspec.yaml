@@ -1,0 +1,25 @@
+name: attendance_app
+description: College Attendance App (Admin / Teacher / Student)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^1.2.0             # API calls ke liye
+  provider: ^6.1.2         # state management
+  qr_flutter: ^4.1.0       # QR code generate karne ke liye (student side)
+  mobile_scanner: ^5.0.0   # QR scan karne ke liye (teacher side)
+  fl_chart: ^0.68.0        # attendance % donut/pie chart (dashboards)
+  shared_preferences: ^2.2.2  # login token/session save karne ke liye
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
