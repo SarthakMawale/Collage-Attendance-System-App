@@ -1,23 +1,28 @@
+// attendance_backend/src/db.js
+
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// Uses DATABASE_URL if provided (e.g. from Render/Railway/Supabase),
-// otherwise falls back to discrete PG* vars for local dev.
-const pool = process.env.DATABASE_URL
-  ? new Pool({
-      connectionString: process.env.DATABASE_URL,
-      ssl: process.env.PGSSL === 'false' ? false : { rejectUnauthorized: false },
-    })
-  : new Pool({
-      host: process.env.PGHOST || 'localhost',
-      port: Number(process.env.PGPORT) || 5432,
-      user: process.env.PGUSER || 'attendance_user',
-      password: process.env.PGPASSWORD || 'postgres',
-      database: process.env.PGDATABASE || 'attendance_app',
-    });
+// ✅ Use DATABASE_URL from environment (Supabase)
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,  // ✅ Required for Supabase
+  },
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 5000,
+});
 
-pool.on('error', (err) => {
-  console.error('Unexpected PG pool error', err);
+// Test connection
+pool.connect((err, client, release) => {
+  if (err) {
+    console.error('❌ Database connection error:', err.message);
+    console.error('📌 DATABASE_URL:', process.env.DATABASE_URL ? 'Set' : 'Not Set');
+  } else {
+    console.log('✅ Database connected successfully');
+    release();
+  }
 });
 
 module.exports = pool;
